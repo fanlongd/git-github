@@ -1,2 +1,1 @@
-this is a readme file.
-git is free.
+this repository is the learning experience of python.
