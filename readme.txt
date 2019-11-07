@@ -1,1 +1,1 @@
-this repository is the learning experience of python.
+this repository is my learning experience of python.
