@@ -8,13 +8,9 @@ def is_prime(i):
         if i % i_x == 0:
             break
         else:
-            return i
+            return i            
 
 
 TMPLIST = filter(is_prime, range(2, 1000))
 NEWLIST = list(TMPLIST)
 print(NEWLIST)
-
-
-
-
