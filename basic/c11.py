@@ -3,6 +3,7 @@
 import sys, time
 from math import sqrt
 
+
 def find_prime(upper):
     """找出小于upper的所有质数
         原理：素数分解定理，即任意合数都可以唯一分解为多个素数之积"""
@@ -22,8 +23,10 @@ def find_prime(upper):
     
     return prime_list
 
-upper = 100000
+
+upper = 10000
 t0 = time.time()
 prime_list = find_prime(upper)
+print(prime_list)
 t1 = time.time()
 print('查找%d以内的质数耗时%0.3f秒，共找到%d个质数'%(upper, t1-t0, len(prime_list)))

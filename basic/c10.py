@@ -26,7 +26,7 @@ START = time.time()
 count = 0
 sum = 0
 
-for i in range(2, 100000):
+for i in range(2, 10000):
     for i_x in range(2, i):
         if i % i_x == 0:
             break
