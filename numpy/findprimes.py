@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import sys, time
+import time
 import numpy as np
 
 """
@@ -9,6 +9,7 @@ import numpy as np
 运行一下我们这个脚本，找出1亿以内的质数，耗时不到3秒，比上面快了大约1万倍
 还可以尝试更大的范围，但步子不要太大！！！
 """
+
 
 def find_prime(upper):
     """找出小于upper的所有质数"""
@@ -19,7 +20,7 @@ def find_prime(upper):
     nums[1] = 0
     
     while True:
-        primes = nums[nums>0]
+        primes = nums[nums > 0]
         if primes.any():
             p = primes[0]
             prime_list.append(p)
@@ -29,8 +30,9 @@ def find_prime(upper):
         else:
             break
     
-    prime_list.extend(nums[nums>0].tolist())
+    prime_list.extend(nums[nums > 0].tolist())
     return prime_list
+
 
 def fast_find_prime(upper, base=100000, block=20000000):
     """快速找出小于upper的所有质数"""
@@ -41,7 +43,7 @@ def fast_find_prime(upper, base=100000, block=20000000):
     mid = int(np.sqrt(upper))
     prime_list = find_prime(base)
     prime_array = np.array(prime_list)
-    prime_array = prime_array[prime_array<=mid]
+    prime_array = prime_array[prime_array <= mid]
     
     start = base
     while start < upper:
@@ -50,7 +52,8 @@ def fast_find_prime(upper, base=100000, block=20000000):
             end = upper
         print((start, end))
         
-        prime_list.extend(process_func(start, np.copy(prime_array), (start, end)))
+        prime_list.extend(process_func(start, np.copy(prime_array),
+                        (start, end)))
         start += block
     
     return prime_list
@@ -65,13 +68,15 @@ def process_func(id, primes, task_range):
     
     nums = np.arange(task_range[0], task_range[1])
     for p in primes:
-        k = (p-task_range[0]%p)%p
+        k = (p-task_range[0] % p) % p
         nums[k::p] = 0
     
-    return nums[nums>0].tolist()
+    return nums[nums > 0].tolist()
+
 
 upper = 100000000
 t0 = time.time()
 prime_list = fast_find_prime(upper)
 t1 = time.time()
-print('查找%d以内的质数耗时%0.3f秒，共找到%d个质数'%(upper, t1-t0, len(prime_list)))
+print('查找%d以内的质数耗时%0.3f秒，共找到%d个质数'
+        %(upper, t1-t0, len(prime_list)))
