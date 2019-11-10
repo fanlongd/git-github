@@ -8,7 +8,7 @@
 5、用正则表达式提取我们需要的数据
 '''
 
-import re, xlwt
+import re
 import pandas as pd
 from urllib import request
 
@@ -19,7 +19,7 @@ class Spider():
     # 正则表达式
     root_pattern = r'<li class="clear">([\s\S]*?)</li>'  # 根表达式——房产信息
     position_pattern = r'/">([\s\S]*?)</a>'                   # 位置信息
-    totalprice_pattern1 = r'<div class="totalPrice"><span>([\s\S]*?)</div>'  # 总价信息
+    totalprice_pattern1 = r'<div class="totalPrice"><span>([\s\S]*?)</div>'  
     totalprice_pattern = r'([^</span>])'                           # 总价进一步信息
     unitprice_pattern = r'<span>单价([\s\S]*?)</span>'              # 单价信息
 
@@ -96,3 +96,11 @@ class Spider():
         houses = list(self.__refine(houses))
         houses = self.__sort(houses)
         self.__show(houses)
+
+
+spider = Spider()
+spider.go()
+print(spider.houses)
+print(type(spider.houses))
+# 保存到excel
+spider.houses.to_excel('./data/spider.xls', sheet_name='Sheet1')  
