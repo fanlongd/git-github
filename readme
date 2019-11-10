@@ -1,0 +1,18 @@
+在这样的文件结构下
+
+trymodule
+│   first.py
+├───folder1
+│   │   abcd.py
+│   │   __init__.py
+folder1是一个package，abcd是一个module
+
+import folder1 只是导入package，相当于执行__init__.py文件
+from folder1 import abcd则执行了__init__.py文件与abcd.py文件
+from folder1.abcd import b其实也执行了__init__.py文件文件与abcd.py文件
+
+知道这个执行原理，可以更好理解前面得到的一些结论
+
+首先是在__init__.py文件中什么都没有的情况下，import folder1无法调用abcd模块中的变量，
+是因为相当与运行了一个空文件，没有将整个包导入工作空间abcd模块中定义了print语句后，
+import两次，只有第一次会print出值，说明第二次检查出模块已在导入之列，忽略了这条import命令

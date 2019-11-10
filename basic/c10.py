@@ -19,27 +19,27 @@ while 条件循环
 # 找出2-100的素数个数，并打印所有素数
 # 方法1.
 
-import time
+# import time
 
-START = time.time()
+# START = time.time()
 
-count = 0
-sum = 0
+# count = 0
+# sum = 0
 
-for i in range(2, 100000):
-    for i_x in range(2, i):
-        if i % i_x == 0:
-            break
-    else:
-        # print(i, 'is prime')
-        count += 1
-        sum += i
+# for i in range(2, 10000):
+#     for i_x in range(2, i):
+#         if i % i_x == 0:
+#             break
+#     else:
+#         # print(i, 'is prime')
+#         count += 1
+#         sum += i
 
-print('Count of prime numbers:', count)
-print('Sum of prime numbers:', sum)
+# print('Count of prime numbers:', count)
+# print('Sum of prime numbers:', sum)
 
-END = time.time()
-print('Running time:', END - START)
+# END = time.time()
+# print('Running time:', END - START)
 
 
 # 方法2.
