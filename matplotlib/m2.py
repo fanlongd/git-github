@@ -2,17 +2,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 def main():
     fig = plt.figure()
-
+    
     # scatter 散点图
-    fig.add_subplot(3, 3, 1)
+    fig.add_subplot(331)
     n = 128
     X = np.random.normal(0, 1, n)   # 生成随机数
     Y = np.random.normal(0, 1, n)
     T = np.arctan2(Y, X)    # T变量用来标注颜色
-    # plt.axes([0.025, 0.025, 0.95, 0.95])
+    
     plt.scatter(X, Y, s=25, c=T, alpha=.6)
     plt.xlim(-1.5, 1.5), plt.xticks([])
     plt.ylim(-1.5, 1.5), plt.yticks([])
@@ -86,7 +85,7 @@ def main():
     X, Y = np.meshgrid(x, y)
     plt.contourf(X, Y, f(X, Y), 8, alpha=.75, cmap=plt.cm.hot)
     
-    plt.savefig('figure_2.png')
+    # plt.savefig('figure_2.png')
     plt.show()
 
     

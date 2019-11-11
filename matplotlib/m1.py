@@ -1,8 +1,12 @@
 
 # encoding=utf-8
+
 import numpy as np
 import matplotlib.pyplot as plt
 
+# # 支持jupyter notebook矢量图显示
+# %matplotlib inline
+# %config InlineBackend.figure_format = 'svg'  
 
 def main():
     # line
@@ -49,8 +53,10 @@ def main():
             arrowprops=dict(arrowstyle='->', connectionstyle='arc3, rad=.5')
                 )
     
-    plt.savefig("figure_1.png")     # 放在plt.show()前面
+    plt.savefig("figure_1.eps")     # 放在plt.show()前面
     plt.show()  
 
 if __name__ == "__main__":
     main()
+
+
