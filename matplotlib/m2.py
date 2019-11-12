@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def main():
     fig = plt.figure()
     
@@ -64,7 +65,7 @@ def main():
 
     data = np.random.rand(3,3)
     cmap = cm.Blues
-    plt.imshow(data, interpolation='nearest', cmap=cmap,aspect='auto', vmin=0, vmax=1)
+    plt.imshow(data, interpolation='nearest', cmap=cmap, aspect='auto', vmin=0, vmax=1)
     # plt.show()
 
     # 3d图
